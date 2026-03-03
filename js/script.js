@@ -14,7 +14,7 @@ cargarSeccion("pages/listas.html", "listas", "Error al cargar la página de list
 cargarSeccion("pages/formularios.html", "formularios", "Error al cargar la página de formularios" );
 cargarSeccion("pages/tablas.html", "tablas", "Error al cargar la página de tablas" );
 cargarSeccion("pages/multimedia.html", "multimedia", "Error al cargar la página de multimedia" );
-
+cargarSeccion("pages/nosotros.html", "nosotros", "Error al cargar la página de nosotros" );
 document.addEventListener("DOMContentLoaded", () => {
  
   const secciones = document.querySelectorAll(".seccion");
