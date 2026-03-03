@@ -12,6 +12,8 @@ cargarSeccion("pages/basicas.html", "basicas", "Error al cargar la página de b�
 cargarSeccion("pages/texto.html", "texto","Error al cargar la página de texto" );
 cargarSeccion("pages/listas.html", "listas", "Error al cargar la página de listas")
 cargarSeccion("pages/formularios.html", "formularios", "Error al cargar la página de formularios" );
+cargarSeccion("pages/tablas.html", "tablas", "Error al cargar la página de tablas" );
+cargarSeccion("pages/multimedia.html", "multimedia", "Error al cargar la página de multimedia" );
 
 document.addEventListener("DOMContentLoaded", () => {
  

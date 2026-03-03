@@ -1,0 +1,104 @@
+<section class="multimedia">
+  <h2>Etiquetas multimedia</h2>
+
+
+  <article class="etiqueta">
+    <h3>&lt;img&gt;</h3>
+    <p>
+      La etiqueta &lt;img&gt; se usa para mostrar imágenes en la página.  
+      Usa el atributo <code>src</code> para indicar la ruta de la imagen y
+      <code>alt</code> para una descripción alternativa.
+    </p>
+    <p><strong>Dónde poner el enlace de la imagen:</strong> en el atributo <code>src</code>.</p>
+
+    <p>Ejemplo real:</p>
+    <img
+      src="media/image.jpg"
+      alt="Descripción de la imagen"
+      width="300"
+    >
+
+    <p>Ejemplo en código:</p>
+    <pre>
+&lt;img src="media/image.jpg" alt="Descripción de la imagen" width="300"&gt;
+    </pre>
+  </article>
+
+
+  <article class="etiqueta">
+    <h3>&lt;audio&gt; y &lt;source&gt;</h3>
+    <p>
+      &lt;audio&gt; se usa para reproducir archivos de audio.  
+      Con el atributo <code>controls</code> se muestran los controles de reproducción.
+      Dentro se usa &lt;source&gt; para indicar el archivo de audio.
+    </p>
+    <p><strong>Dónde poner el enlace del audio:</strong> en el atributo <code>src</code> de &lt;source&gt;.</p>
+
+    <p>Ejemplo real:</p>
+    <audio controls>
+      <source src="media/audio.mp3" type="audio/mpeg">
+      Tu navegador no soporta la etiqueta de audio.
+    </audio>
+
+    <p>Ejemplo en código:</p>
+    <pre>
+&lt;audio controls&gt;
+    &lt;source src="media/audio.mp3" type="audio/mpeg"&gt;
+    Tu navegador no soporta la etiqueta de audio.
+&lt;/audio&gt;
+    </pre>
+  </article>
+
+
+  <article class="etiqueta">
+    <h3>&lt;video&gt; y &lt;source&gt;</h3>
+    <p>
+      &lt;video&gt; se usa para mostrar videos.  
+      Con el atributo <code>controls</code> se muestran los controles (play, pausa, volumen, etc.).
+      Dentro se usa &lt;source&gt; para indicar el archivo de video.
+    </p>
+    <p><strong>Dónde poner el enlace del video:</strong> en el atributo <code>src</code> de &lt;source&gt;.</p>
+
+    <p>Ejemplo real:</p>
+    <video width="400" controls>
+      <source src="media/video.mp4" type="video/mp4">
+      Tu navegador no soporta la etiqueta de video.
+    </video>
+
+    <p>Ejemplo en código:</p>
+    <pre>
+&lt;video width="400" controls&gt;
+    &lt;source src=" media/video.mp4" type="video/mp4"&gt;
+    Tu navegador no soporta la etiqueta de video.
+&lt;/video&gt;
+    </pre>
+  </article>
+
+
+  <article class="etiqueta">
+    <h3>&lt;figure&gt; y &lt;figcaption&gt;</h3>
+    <p>
+      &lt;figure&gt; agrupa contenido multimedia (como imágenes o videos) y  
+      &lt;figcaption&gt; añade un pie de foto o descripción.
+    </p>
+    <p><strong>Dónde poner el enlace de la imagen/video:</strong> igual que en &lt;img&gt; o &lt;video&gt;, en el atributo <code>src</code>.</p>
+
+    <p>Ejemplo real:</p>
+    <figure>
+      <img
+        src="media/image2.jpg"
+        alt="Ejemplo de figure"
+        width="300"
+      >
+      <figcaption>Esta es una imagen con pie de foto usando &lt;figure&gt; y &lt;figcaption&gt;.</figcaption>
+    </figure>
+
+    <p>Ejemplo en código:</p>
+    <pre>
+&lt;figure&gt;
+    &lt;img src="media/image2" alt="Ejemplo de figure" width="300"&gt;
+    &lt;figcaption&gt;Esta es una imagen con pie de foto.&lt;/figcaption&gt;
+&lt;/figure&gt;
+    </pre>
+  </article>
+</section>

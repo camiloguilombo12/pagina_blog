@@ -1,0 +1,195 @@
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #f3f4f6;
+  color: #1f2933;
+}
+
+
+.seccion {
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 1.75rem 2rem;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.08);
+}
+
+
+h1, h2, h3, h4 {
+  color: #111827;
+  margin-bottom: 0.75rem;
+}
+
+p {
+  margin-bottom: 0.75rem;
+  line-height: 1.5;
+}
+
+
+header {
+  background: #ffffff;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.06);
+  padding: 1rem 0 1.25rem;
+  margin-bottom: 1rem;
+}
+
+#titulo-p {
+  text-align: center;
+  font-size: 1.8rem;
+  margin-bottom: 0.25rem;
+}
+
+#parrafo1 {
+  text-align: center;
+  color: #4b5563;
+  font-size: 0.95rem;
+  max-width: 700px;
+  margin: 0 auto 1rem;
+}
+
+
+header nav ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 0 1rem;
+}
+
+header nav ul li a {
+    display: inline-block;
+    padding: 0.5rem 1.1rem;
+    border-radius: 999px;
+    border: 2px solid #2563eb;
+    color: #2563eb;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    background: #ffffff;
+    transition:
+      background-color 0.2s ease,
+      color 0.2s ease,
+      box-shadow 0.2s ease,
+      transform 0.15s ease;
+  }
+
+header nav ul li a:hover {
+  background: #2563eb;
+  color: #ffffff;
+  box-shadow: 0 6px 16px rgba(37, 99, 235, 0.35);
+  transform: translateY(-1px);
+}
+
+
+header nav ul li a.activo {
+  background: #2563eb;
+  color: #ffffff;
+}
+
+
+article.etiqueta {
+  margin-bottom: 1.5rem;
+  border-left: 4px solid #e5e7eb;
+  padding-left: 1rem;
+}
+
+article.etiqueta h3 {
+  margin-bottom: 0.4rem;
+  color: #1d4ed8;
+}
+
+article.etiqueta pre {
+  background: #0b1120;
+  color: #e5e7eb;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  overflow-x: auto;
+}
+
+
+.campo {
+  margin-bottom: 0.9rem;
+}
+
+.campo label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+}
+
+.campo input,
+.campo textarea,
+.campo select {
+  width: 100%;
+  padding: 0.45rem 0.6rem;
+  border-radius: 8px;
+  border: 1px solid #cbd5e1;
+  font: inherit;
+}
+
+.campo input:focus,
+.campo textarea:focus,
+.campo select:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15);
+}
+
+.campo button,
+button[type="submit"] {
+  padding: 0.5rem 1.2rem;
+  border-radius: 999px;
+  border: none;
+  background: #16a34a;
+  color: #ffffff;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.15s ease;
+}
+
+.campo button:hover,
+button[type="submit"]:hover {
+  background: #15803d;
+  box-shadow: 0 6px 16px rgba(22, 163, 74, 0.35);
+  transform: translateY(-1px);
+}
+
+/* Multimedia: que imagen, audio y video se adapten al ancho */
+.multimedia img,
+.multimedia video {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  display: block;
+  margin-bottom: 0.75rem;
+}
+
+.multimedia audio {
+  width: 100%;
+  margin-bottom: 0.75rem;
+}
+
+/* Responsive básico */
+@media (max-width: 640px) {
+  .seccion {
+    margin: 1.25rem 0.75rem;
+    padding: 1.25rem 1.25rem;
+  }
+
+  #titulo-p {
+    font-size: 1.4rem;
+  }
+}
