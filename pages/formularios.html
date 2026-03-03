@@ -1,0 +1,163 @@
+<section class="formularios">
+    <h2>Etiquetas de formularios</h2>
+  
+    <!-- FORM -->
+    <article class="etiqueta">
+      <h3>&lt;form&gt;</h3>
+      <p>
+        La etiqueta &lt;form&gt; define un formulario y agrupa todos los campos que el
+        usuario puede rellenar y enviar.
+      </p>
+      <p>Debajo tienes un formulario completo de ejemplo que usaremos para las demás etiquetas.</p>
+  
+      <form id="form-ejemplo">
+        
+        <fieldset>
+          <legend>Datos de contacto</legend>
+  
+         
+          <div class="campo">
+            <label for="nombre">Nombre:</label>
+            <input
+              type="text"
+              id="nombre"
+              name="nombre"
+              placeholder="Escribe tu nombre"
+              required
+            >
+          </div>
+  
+          
+          <div class="campo">
+            <label for="correo">Correo electrónico:</label>
+            <input
+              type="email"
+              id="correo"
+              name="correo"
+              placeholder="tucorreo@ejemplo.com"
+              required
+            >
+          </div>
+  
+          
+          <div class="campo">
+            <label for="mensaje">Mensaje:</label>
+            <textarea
+              id="mensaje"
+              name="mensaje"
+              rows="4"
+              placeholder="Escribe tu mensaje aquí..."
+            ></textarea>
+          </div>
+  
+          
+          
+          <div class="campo">
+            <label for="tema">Tema de contacto:</label>
+            <select id="tema" name="tema">
+              <option value="">-- Selecciona una opción --</option>
+              <option value="soporte">Soporte técnico</option>
+              <option value="ventas">Ventas</option>
+              <option value="otros">Otros</option>
+            </select>
+          </div>
+  
+          
+          
+          <div class="campo">
+            <button type="submit">Enviar formulario</button>
+          </div>
+        </fieldset>
+      </form>
+  
+      <h4>Resultado del envío</h4>
+      <div id="resultado-formulario">
+
+    </div>
+    </article>
+  
+   
+    <article class="etiqueta">
+      <h3>&lt;label&gt;</h3>
+      <p>
+        &lt;label&gt; asocia un texto descriptivo a un campo del formulario.  
+        El atributo <code>for</code> debe coincidir con el <code>id</code> del campo.
+      </p>
+      <p>Ejemplo (usado en el formulario de arriba):</p>
+      <p>
+        <code>&lt;label for="nombre"&gt;Nombre:&lt;/label&gt;</code><br>
+        <code>&lt;input id="nombre" type="text"&gt;</code>
+      </p>
+    </article>
+  
+
+    <article class="etiqueta">
+      <h3>&lt;input&gt;</h3>
+      <p>
+        &lt;input&gt; crea diferentes tipos de campos (texto, email, contraseña, etc.) según
+        el valor del atributo <code>type</code>.
+      </p>
+      <p>Ejemplos reales del formulario:</p>
+      <p>
+        <code>&lt;input type="text" id="nombre" name="nombre"&gt;</code><br>
+        <code>&lt;input type="email" id="correo" name="correo"&gt;</code>
+      </p>
+    </article>
+  
+
+    <article class="etiqueta">
+      <h3>&lt;textarea&gt;</h3>
+      <p>
+        &lt;textarea&gt; se usa para textos largos de varias líneas, como mensajes o comentarios.
+      </p>
+      <p>Ejemplo del formulario:</p>
+      <p>
+        <code>&lt;textarea id="mensaje" name="mensaje" rows="4"&gt;...&lt;/textarea&gt;</code>
+      </p>
+    </article>
+  
+  
+    <article class="etiqueta">
+      <h3>&lt;select&gt; y &lt;option&gt;</h3>
+      <p>
+        &lt;select&gt; crea una lista desplegable y &lt;option&gt; define cada una de las opciones.
+      </p>
+      <p>Ejemplo del formulario:</p>
+      <p>
+        <code>&lt;select id="tema" name="tema"&gt;</code><br>
+        <code>&nbsp;&nbsp;&lt;option value=""&gt;-- Selecciona una opción --&lt;/option&gt;</code><br>
+        <code>&nbsp;&nbsp;&lt;option value="soporte"&gt;Soporte técnico&lt;/option&gt;</code><br>
+        <code>&nbsp;&nbsp;&lt;option value="ventas"&gt;Ventas&lt;/option&gt;</code><br>
+        <code>&nbsp;&nbsp;&lt;option value="otros"&gt;Otros&lt;/option&gt;</code><br>
+        <code>&lt;/select&gt;</code>
+      </p>
+    </article>
+  
+  
+    <article class="etiqueta">
+      <h3>&lt;button&gt;</h3>
+      <p>
+        &lt;button&gt; crea un botón. Con <code>type="submit"</code> envía el formulario.
+      </p>
+      <p>Ejemplo del formulario:</p>
+      <p>
+        <code>&lt;button type="submit"&gt;Enviar formulario&lt;/button&gt;</code>
+      </p>
+    </article>
+  
+
+    <article class="etiqueta">
+      <h3>&lt;fieldset&gt; y &lt;legend&gt;</h3>
+      <p>
+        &lt;fieldset&gt; agrupa campos relacionados dentro del formulario y &lt;legend&gt; pone
+        un título a ese grupo.
+      </p>
+      <p>Ejemplo del formulario:</p>
+      <p>
+        <code>&lt;fieldset&gt;</code><br>
+        <code>&nbsp;&nbsp;&lt;legend&gt;Datos de contacto&lt;/legend&gt;</code><br>
+        <code>&nbsp;&nbsp;... campos del formulario ...</code><br>
+        <code>&lt;/fieldset&gt;</code>
+      </p>
+    </article>
+  </section>
