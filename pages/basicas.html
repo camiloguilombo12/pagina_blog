@@ -1,16 +1,130 @@
 <section id="basicas">
-    <h2>Etiquetas basicas</h2>
+    <h2>Etiquetas Básicas de la Estructura del Documento</h2>
 
     <article class="etiqueta">
         <h3>&lt;!DOCTYPE html&gt;</h3>
-        <p>define el tipo de documento HTML</p>
+        <p>Indica al navegador que el documento está escrito en HTML5. 
+        Siempre debe ir en la primera línea del archivo y es fundamental 
+        para que el navegador interprete correctamente el código.</p>
         <pre>
 &lt;!DOCTYPE html&gt;
         </pre>
     </article>
 
     <article class="etiqueta">
-        
-
+        <h3>&lt;html&gt;</h3>
+        <p>Es la etiqueta raíz del documento. Todo el contenido de la página 
+        debe estar dentro de esta etiqueta. También puede incluir el atributo 
+        lang para indicar el idioma del sitio.</p>
+        <pre>
+&lt;html lang="es"&gt;
+&lt;/html&gt;
+        </pre>
     </article>
+
+    <article class="etiqueta">
+        <h3>&lt;head&gt;</h3>
+        <p>Contiene información interna del documento que no es visible 
+        para el usuario, como configuraciones, metadatos, enlaces a archivos 
+        CSS y scripts.</p>
+        <pre>
+&lt;head&gt;
+&lt;/head&gt;
+        </pre>
+    </article>
+
+    <article class="etiqueta">
+        <h3>&lt;title&gt;</h3>
+        <p>Define el título de la página que aparece en la pestaña del 
+        navegador. Es importante para la identificación del sitio y el SEO.</p>
+        <pre>
+&lt;title&gt;Mi Página Web&lt;/title&gt;
+        </pre>
+    </article>
+
+    <article class="etiqueta">
+        <h3>&lt;body&gt;</h3>
+        <p>Contiene todo el contenido visible del sitio web, como textos, 
+        imágenes, enlaces, formularios y demás elementos que el usuario puede ver e interactuar.</p>
+        <pre>
+&lt;body&gt;
+&lt;/body&gt;
+        </pre>
+    </article>
+</section>
+
+
+<section id="recomendadas">
+    <h2>Etiquetas Recomendadas (Estructura Semántica)</h2>
+
+    <article class="etiqueta">
+        <h3>&lt;header&gt;</h3>
+        <p>Representa el encabezado de una página o sección. 
+        Generalmente contiene el título principal, logotipo o información introductoria.</p>
+        <pre>
+&lt;header&gt;
+&lt;/header&gt;
+        </pre>
+    </article>
+
+    <article class="etiqueta">
+        <h3>&lt;nav&gt;</h3>
+        <p>Se utiliza para agrupar los enlaces de navegación del sitio, 
+        como menús principales o secundarios.</p>
+        <pre>
+&lt;nav&gt;
+&lt;/nav&gt;
+        </pre>
+    </article>
+
+    <article class="etiqueta">
+        <h3>&lt;main&gt;</h3>
+        <p>Define el contenido principal del documento. Solo debe existir 
+        una etiqueta &lt;main&gt; por página y no debe contener elementos repetitivos como menús.</p>
+        <pre>
+&lt;main&gt;
+&lt;/main&gt;
+        </pre>
+    </article>
+
+    <article class="etiqueta">
+        <h3>&lt;section&gt;</h3>
+        <p>Agrupa contenido relacionado bajo un mismo tema. 
+        Se utiliza para dividir el contenido en bloques organizados.</p>
+        <pre>
+&lt;section&gt;
+&lt;/section&gt;
+        </pre>
+    </article>
+
+    <article class="etiqueta">
+        <h3>&lt;article&gt;</h3>
+        <p>Representa contenido independiente que podría existir por sí solo, 
+        como una noticia, publicación de blog o producto.</p>
+        <pre>
+&lt;article&gt;
+&lt;/article&gt;
+        </pre>
+    </article>
+
+    <article class="etiqueta">
+        <h3>&lt;aside&gt;</h3>
+        <p>Contiene información complementaria o secundaria relacionada 
+        con el contenido principal, como barras laterales o recomendaciones.</p>
+        <pre>
+&lt;aside&gt;
+&lt;/aside&gt;
+        </pre>
+    </article>
+
+    <article class="etiqueta">
+        <h3>&lt;footer&gt;</h3>
+        <p>Representa el pie de página del documento o de una sección. 
+        Generalmente incluye información como autor, derechos de autor o enlaces adicionales.</p>
+        <pre>
+&lt;footer&gt;
+&lt;/footer&gt;
+        </pre>
+    </article>
+
 </section>
