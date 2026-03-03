@@ -1,13 +1,12 @@
-fetch("components/header.html")
-    .then(response=> response.text())
-    .then(data=>{
-        document.getElementById("header-container").innerHTML=data;
-    })
-    .catch(error=>console.error("Error al cargar el header", error));
+function cargarSeccion(ruta, idContenedor, mensajeError) {
+    fetch(ruta)
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById(idContenedor).innerHTML = data;
+        })
+        .catch(error => console.error(mensajeError, error));
+}
 
-    fetch("pages/basicas.html")
-    .then(response=> response.text())
-    .then(data=>{
-        document.getElementById("basicas").innerHTML=data;
-    })
-    .catch(error=>console.error("Error al cagar la pagina de basicas", error));
+cargarSeccion("components/header.html", "header-container", "Error al cargar el header");
+cargarSeccion("pages/basicas.html", "basicas", "Error al cargar la página de básicas");
+cargarSeccion("pages/texto.html", "texto","Error al cargar la página de texto" );
