@@ -70,3 +70,18 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 });
+
+document.addEventListener("click", (e) => {
+  if (!e.target.classList.contains("copia-btn")) return;
+
+  const contenedor = e.target.previousElementSibling; // el <pre class="ejemplo-codigo">
+  if (!contenedor || !contenedor.classList.contains("ejemplo-codigo")) return;
+
+  const codigo = contenedor.querySelector("code").innerText;
+  navigator.clipboard.writeText(codigo);
+
+  e.target.textContent = "Copiado!";
+  setTimeout(() => {
+    e.target.textContent = "Copiar código";
+  }, 1500);
+});
