@@ -310,3 +310,45 @@ footer {
     grid-template-columns: 1fr;
   }
 }
+
+.bloque-codigo {
+  position: relative;
+}
+
+
+.bloque-codigo .ejemplo-codigo {
+  padding-top: 2.2rem;
+}
+
+
+.copia-btn {
+  position: absolute;
+  top: 0.6rem;
+  right: 0.9rem;
+
+  padding: 0.25rem 0.9rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+
+  border-radius: 999px;
+  border: 1px solid #1d4ed8;
+  background-color: #1d4ed8;          
+  color: #f9fafb;                     
+
+  cursor: pointer;
+  box-shadow: 0 8px 18px rgba(15, 23, 42, 0.35);
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.15s ease;
+}
+
+
+.copia-btn:hover {
+  background-color: #0b1120;          
+  color: #e5e7eb;                     
+  border-color: #38bdf8;              
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.6);
+  transform: translateY(-1px);
+}
