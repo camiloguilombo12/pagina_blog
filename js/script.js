@@ -99,22 +99,61 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 
-// Lógica del botón "Copiar código" de los ejemplos
 document.addEventListener("click", (e) => {
-  // Solo reaccionamos si el clic fue sobre un botón con la clase .copia-btn
   if (!e.target.classList.contains("copia-btn")) return;
 
-  // El botón está justo después del bloque <pre class="ejemplo-codigo">
-  const contenedor = e.target.previousElementSibling;
+  const contenedor = e.target.previousElementSibling; // <pre class="ejemplo-codigo">
   if (!contenedor || !contenedor.classList.contains("ejemplo-codigo")) return;
 
-  // Tomamos el texto dentro de la etiqueta <code> y lo copiamos al portapapeles
-  const codigo = contenedor.querySelector("code").innerText;
-  navigator.clipboard.writeText(codigo);
+  const codeElement = contenedor.querySelector("code");
+  if (!codeElement) return;
 
-  // Cambiamos el texto del botón para dar feedback al usuario
-  e.target.textContent = "Copiado!";
-  setTimeout(() => {
-    e.target.textContent = "Copiar código";
-  }, 1500);
+  const codigo = codeElement.innerText;
+
+  // 1) Intentar usar la Clipboard API solo si está disponible y en contexto seguro
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(codigo).then(() => {
+      mostrarMensajeCopiado(e.target);
+    }).catch(() => {
+      copiarConFallback(codigo, e.target);
+    });
+  } else {
+    // 2) Fallback para HTTP u otros casos
+    copiarConFallback(codigo, e.target);
+  }
 });
+
+// Función de fallback usando un <textarea> temporal + execCommand('copy')
+function copiarConFallback(texto, boton) {
+  const textarea = document.createElement("textarea");
+  textarea.value = texto;
+  textarea.style.position = "fixed";
+  textarea.style.top = "-9999px";
+  textarea.style.left = "-9999px";
+  document.body.appendChild(textarea);
+
+  textarea.focus();
+  textarea.select();
+
+  try {
+    const exito = document.execCommand("copy");
+    if (exito) {
+      mostrarMensajeCopiado(boton);
+    } else {
+      alert("Tu navegador no permite copiar automáticamente. Selecciona y copia el texto manualmente.");
+    }
+  } catch (err) {
+    alert("Tu navegador no permite copiar automáticamente. Selecciona y copia el texto manualmente.");
+  }
+
+  document.body.removeChild(textarea);
+}
+
+// Solo maneja el cambio de texto del botón
+function mostrarMensajeCopiado(boton) {
+  const textoOriginal = boton.textContent;
+  boton.textContent = "Copiado!";
+  setTimeout(() => {
+    boton.textContent = textoOriginal;
+  }, 1500);
+}
