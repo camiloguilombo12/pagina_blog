@@ -1,4 +1,9 @@
 <!DOCTYPE html>
+<!--
+  ARCHIVO PRINCIPAL (index.html)
+  - Este archivo es la base de toda la página.
+  - Aquí solo creamos los contenedores donde se va a cargar el contenido usando JavaScript.
+-->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,8 +12,10 @@
 </head>
 <body>
 
+<!-- Contenedor donde se carga el header desde components/header.html -->
 <div id="header-container"></div>
 
+<!-- Contenedores para cada tema del blog; se llenan con los archivos de pages -->
 <div id="basicas" class="seccion"></div>
 <div id="texto" class="seccion"></div>
 <div id="listas" class="seccion"></div>
@@ -17,9 +24,13 @@
 <div id="multimedia" class="seccion"></div>
 <div id="nosotros" class="seccion nosotros"></div>
 
+<!-- Contenedor donde se carga el footer desde components/footer.html -->
 <div id="footer-container"></div>
 
+<!-- Hoja de estilos principal del proyecto -->
 <link rel="stylesheet" href="css/styles.css">
+
+<!-- Archivo JavaScript que carga las secciones y maneja la navegación -->
 <script src="js/script.js"></script>
 </body>
 </html>

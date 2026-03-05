@@ -1,13 +1,24 @@
+<!--
+  HEADER
+  - Muestra el título principal del blog y una breve descripción.
+  - Contiene el menú de navegación con enlaces a cada sección del contenido.
+  - Estos enlaces usan el atributo data-seccion para que JavaScript sepa
+    qué parte de la página mostrar u ocultar.
+-->
 <header> 
         
+        <!-- Título principal de la página -->
         <h1 id="titulo-p">Mi blog de etiquetas html</h1>
-        <p  id="parrafo1">En esta pagina vamos a explicar varias de las etiquetas mas utilizadas en html</p>
-        
 
+        <!-- Descripción corta de lo que se va a encontrar el usuario -->
+        <p id="parrafo1">En esta pagina vamos a explicar varias de las etiquetas mas utilizadas en html</p>
+         
+    <!-- Menú principal de navegación del blog -->
     <nav>
   
     <nav>
   <ul>
+    <!-- Cada enlace apunta a una sección distinta del index mediante data-seccion -->
     <li><a href="#" data-seccion="basicas">Básicas</a></li>
     <li><a href="#" data-seccion="texto">Texto</a></li>
     <li><a href="#" data-seccion="listas">Listas</a></li>

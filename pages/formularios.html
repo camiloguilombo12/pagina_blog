@@ -1,7 +1,14 @@
+<!--
+  SECCIÓN: Formularios en HTML.
+  En esta parte se construye un formulario real de contacto
+  y se explican las etiquetas que lo componen: form, label, input, textarea,
+  select, option, button, fieldset y legend.
+-->
 <section class="formularios">
     <h2>Etiquetas de formularios</h2>
   
     
+    <!-- Ejemplo principal de un formulario completo con varios tipos de campos -->
     <article class="etiqueta">
       <h3>&lt;form&gt;</h3>
       <p>
@@ -10,12 +17,16 @@
       </p>
       <p>Debajo tienes un formulario completo de ejemplo que usaremos para las demás etiquetas.</p>
   
+      <!-- Formulario real que se usa junto con JavaScript para mostrar los datos enviados -->
       <form id="form-ejemplo">
         
+        <!-- fieldset: agrupa los campos relacionados del formulario -->
         <fieldset>
+          <!-- legend: título del grupo de campos -->
           <legend>Datos de contacto</legend>
   
          
+          <!-- Campo de texto para capturar el nombre de la persona -->
           <div class="campo">
             <label for="nombre">Nombre:</label>
             <input
@@ -28,6 +39,7 @@
           </div>
   
           
+          <!-- Campo de tipo email para capturar el correo electrónico -->
           <div class="campo">
             <label for="correo">Correo electrónico:</label>
             <input
@@ -40,6 +52,7 @@
           </div>
   
           
+          <!-- Campo de texto grande para que el usuario escriba un mensaje -->
           <div class="campo">
             <label for="mensaje">Mensaje:</label>
             <textarea
@@ -52,6 +65,7 @@
   
           
           
+          <!-- Lista desplegable para escoger el tema del contacto -->
           <div class="campo">
             <label for="tema">Tema de contacto:</label>
             <select id="tema" name="tema">
@@ -64,12 +78,14 @@
   
           
           
+          <!-- Botón para enviar el formulario -->
           <div class="campo">
             <button type="submit">Enviar formulario</button>
           </div>
         </fieldset>
       </form>
   
+      <!-- Aquí se mostrará el resultado del formulario usando JavaScript -->
       <h4>Resultado del envío</h4>
       <div id="resultado-formulario">
 
@@ -77,6 +93,7 @@
     </article>
   
    
+    <!-- Explicación de la etiqueta <label> y su relación con el atributo for/id -->
     <article class="etiqueta">
       <h3>&lt;label&gt;</h3>
       <p>
@@ -94,6 +111,7 @@
     </article>
   
 
+    <!-- Explicación de la etiqueta <input> y sus diferentes tipos -->
     <article class="etiqueta">
       <h3>&lt;input&gt;</h3>
       <p>
@@ -111,6 +129,7 @@
     </article>
   
 
+    <!-- Explicación de la etiqueta <textarea> para textos largos -->
     <article class="etiqueta">
       <h3>&lt;textarea&gt;</h3>
       <p>
@@ -126,6 +145,7 @@
     </article>
   
   
+    <!-- Explicación de <select> y <option> para listas desplegables -->
     <article class="etiqueta">
       <h3>&lt;select&gt; y &lt;option&gt;</h3>
       <p>
@@ -146,6 +166,7 @@
     </article>
   
   
+    <!-- Explicación de la etiqueta <button> y el uso de type="submit" -->
     <article class="etiqueta">
       <h3>&lt;button&gt;</h3>
       <p>
@@ -161,6 +182,7 @@
     </article>
   
 
+    <!-- Explicación de <fieldset> y <legend> para agrupar campos y poner un título al grupo -->
     <article class="etiqueta">
       <h3>&lt;fieldset&gt; y &lt;legend&gt;</h3>
       <p>

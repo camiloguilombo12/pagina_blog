@@ -1,4 +1,14 @@
+/* 
+  styles.css
+  Estilos para "Mi blog de etiquetas HTML".
+  Aquí definimos:
+  - Un pequeño "reset" para márgenes y rellenos.
+  - Los colores y la fuente general del sitio.
+  - El diseño de las secciones, el header, los ejemplos, formularios,
+    la sección "nosotros", el footer y el comportamiento en pantallas pequeñas.
+*/
 
+/* Reset básico para que todos los elementos empiecen con la misma base */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -6,6 +16,7 @@
 }
 
 
+/* Estilos base del cuerpo de la página */
 body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   background: #f3f4f6;
@@ -13,6 +24,7 @@ body {
 }
 
 
+/* Cada sección de contenido se muestra como una tarjeta centrada y con sombra */
 .seccion {
   max-width: 1000px;
   margin: 2rem auto;
@@ -23,17 +35,20 @@ body {
 }
 
 
+/* Títulos y subtítulos del sitio */
 h1, h2, h3, h4 {
   color: #111827;
   margin-bottom: 0.75rem;
 }
 
+/* Párrafos generales del contenido */
 p {
   margin-bottom: 0.75rem;
   line-height: 1.5;
 }
 
 
+/* HEADER: barra superior con título y menú de navegación */
 header {
   background: #ffffff;
   box-shadow: 0 4px 12px rgba(15, 23, 42, 0.06);
@@ -96,6 +111,7 @@ header nav ul li a.activo {
 }
 
 
+/* Bloques que explican cada etiqueta HTML (secciones de teoría) */
 article.etiqueta {
   margin-bottom: 1.5rem;
   border-left: 4px solid #e5e7eb;
@@ -107,6 +123,7 @@ article.etiqueta h3 {
   color: #1d4ed8;
 }
 
+/* Bloques donde se muestra código de ejemplo sobre fondo oscuro */
 .ejemplo-codigo {
   background: #0b1120;
   color: #e5e7eb;
@@ -121,6 +138,7 @@ article.etiqueta h3 {
   font-family: Consolas, "Fira Code", Menlo, monospace;
 }
 
+/* Estilo general para cualquier texto encerrado en <code> */
 code {
   background: #111827;
   color: #e5e7eb;
@@ -130,6 +148,7 @@ code {
 }
 
 
+/* FORMULARIOS: separación entre los distintos campos */
 .campo {
   margin-bottom: 0.9rem;
 }
@@ -181,6 +200,7 @@ button[type="submit"]:hover {
 }
 
 
+/* MULTIMEDIA: imágenes y videos adaptables y con bordes redondeados */
 .multimedia img,
 .multimedia video {
   max-width: 100%;
@@ -195,6 +215,7 @@ button[type="submit"]:hover {
   margin-bottom: 0.75rem;
 }
 
+/* SECCIÓN "NOSOTROS": título centrado y tarjetas en dos columnas */
 .nosotros > section.nosotros > h2 {
   text-align: center;
   margin-bottom: 1.25rem;
@@ -245,6 +266,7 @@ button[type="submit"]:hover {
 }
 
 
+/* FOOTER: barra inferior oscura con texto claro y enlaces a secciones */
 footer {
   margin-top: 2rem;
   padding: 1.5rem 0 2.25rem;
@@ -296,6 +318,7 @@ footer {
 }
 
 
+/* RESPONSIVE: ajustes para que se vea bien en pantallas pequeñas (celular) */
 @media (max-width: 640px) {
   .seccion {
     margin: 1.25rem 0.75rem;
@@ -311,6 +334,7 @@ footer {
   }
 }
 
+/* Contenedor que envuelve cada bloque de código y su botón de copiar */
 .bloque-codigo {
   position: relative;
 }
@@ -321,6 +345,7 @@ footer {
 }
 
 
+/* Botón flotante que permite copiar el código mostrado en los ejemplos */
 .copia-btn {
   position: absolute;
   top: 0.6rem;
