@@ -1,8 +1,35 @@
+function initFormulario() {
+    const formulario = document.querySelector("#formularios #form-ejemplo");
+    const resultado = document.querySelector("#formularios #resultado-formulario");
+
+    if (!formulario || !resultado) return;
+
+    formulario.addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        const nombre = document.getElementById("nombre").value;
+        const correo = document.getElementById("correo").value;
+        const mensaje = document.getElementById("mensaje").value;
+        const tema = document.getElementById("tema").value || "No seleccionado";
+
+        resultado.innerHTML = `
+      <p><strong>Nombre:</strong> ${nombre}</p>
+      <p><strong>Correo:</strong> ${correo}</p>
+      <p><strong>Mensaje:</strong> ${mensaje || "Sin mensaje"}</p>
+      <p><strong>Tema:</strong> ${tema}</p>
+    `;
+    });
+}
+
 function cargarSeccion(ruta, idContenedor, mensajeError) {
     fetch(ruta)
         .then(response => response.text())
         .then(data => {
             document.getElementById(idContenedor).innerHTML = data;
+
+            if (idContenedor === "formularios") {
+                initFormulario();
+            }
         })
         .catch(error => console.error(mensajeError, error));
 }
@@ -43,24 +70,4 @@ document.addEventListener("DOMContentLoaded", () => {
     mostrarSeccion(idSeccion);
   });
 
-  const formulario = document.getElementById("form-ejemplo");
-  const resultado = document.getElementById("resultado-formulario");
-
-  if (!formulario || !resultado) return;
-
-  formulario.addEventListener("submit", (event) => {
-    event.preventDefault();
-
-    const nombre = document.getElementById("nombre").value;
-    const correo = document.getElementById("correo").value;
-    const mensaje = document.getElementById("mensaje").value;
-    const tema = document.getElementById("tema").value || "No seleccionado";
-
-    resultado.innerHTML = `
-      <p><strong>Nombre:</strong> ${nombre}</p>
-      <p><strong>Correo:</strong> ${correo}</p>
-      <p><strong>Mensaje:</strong> ${mensaje || "Sin mensaje"}</p>
-      <p><strong>Tema:</strong> ${tema}</p>
-    `;
-  });
 });
