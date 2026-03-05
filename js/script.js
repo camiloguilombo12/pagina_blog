@@ -35,6 +35,7 @@ function cargarSeccion(ruta, idContenedor, mensajeError) {
 }
 
 cargarSeccion("components/header.html", "header-container", "Error al cargar el header");
+cargarSeccion("components/footer.html", "footer-container", "Error al cargar el footer");
 cargarSeccion("pages/basicas.html", "basicas", "Error al cargar la página de básicas");
 cargarSeccion("pages/texto.html", "texto","Error al cargar la página de texto" );
 cargarSeccion("pages/listas.html", "listas", "Error al cargar la página de listas")
