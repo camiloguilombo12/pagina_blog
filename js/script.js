@@ -99,61 +99,84 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 
+// LÓGICA DEL BOTÓN "COPIAR CÓDIGO"
+// Esta parte se encarga de que, al hacer clic en el botón "Copiar código",
+// se copie al portapapeles el texto que está dentro del bloque <code>.
+// Si el navegador no soporta la API moderna, se usa un método alternativo.
 document.addEventListener("click", (e) => {
+  // Si el clic NO fue sobre un botón con la clase .copia-btn, salimos
   if (!e.target.classList.contains("copia-btn")) return;
 
-  const contenedor = e.target.previousElementSibling; // <pre class="ejemplo-codigo">
+  // El botón de copiar siempre está después del bloque <pre class="ejemplo-codigo">
+  const contenedor = e.target.previousElementSibling;
+  // Si por algún motivo no encontramos el bloque correcto, no hacemos nada
   if (!contenedor || !contenedor.classList.contains("ejemplo-codigo")) return;
 
+  // Dentro del bloque de código buscamos específicamente la etiqueta <code>
   const codeElement = contenedor.querySelector("code");
   if (!codeElement) return;
 
+  // Obtenemos el texto plano que se va a copiar
   const codigo = codeElement.innerText;
 
-  // 1) Intentar usar la Clipboard API solo si está disponible y en contexto seguro
+  // PRIMER INTENTO: usar la API moderna del portapapeles (navigator.clipboard)
+  // Esta API solo funciona en contextos seguros (https o localhost)
   if (navigator.clipboard && window.isSecureContext) {
     navigator.clipboard.writeText(codigo).then(() => {
+      // Si todo salió bien, mostramos el mensaje de "Copiado!"
       mostrarMensajeCopiado(e.target);
     }).catch(() => {
+      // Si hubo un error, usamos el método alternativo
       copiarConFallback(codigo, e.target);
     });
   } else {
-    // 2) Fallback para HTTP u otros casos
+    // Si el navegador no soporta navigator.clipboard, usamos el método alternativo
     copiarConFallback(codigo, e.target);
   }
 });
 
-// Función de fallback usando un <textarea> temporal + execCommand('copy')
+// FUNCIÓN ALTERNATIVA PARA COPIAR (FALLBACK)
+// Esta función se usa cuando navigator.clipboard no está disponible.
+// Crea un <textarea> oculto, copia el texto allí y usa document.execCommand("copy").
 function copiarConFallback(texto, boton) {
+  // Creamos un textarea invisible donde pondremos el texto a copiar
   const textarea = document.createElement("textarea");
   textarea.value = texto;
-  textarea.style.position = "fixed";
-  textarea.style.top = "-9999px";
+  textarea.style.position = "fixed";   // fixed para que no se mueva con el scroll
+  textarea.style.top = "-9999px";      // lo posicionamos fuera de la pantalla
   textarea.style.left = "-9999px";
   document.body.appendChild(textarea);
 
+  // Seleccionamos el texto dentro del textarea
   textarea.focus();
   textarea.select();
 
   try {
+    // Intentamos ejecutar el comando de copiado clásico
     const exito = document.execCommand("copy");
     if (exito) {
+      // Si funcionó, mostramos el mensaje de "Copiado!"
       mostrarMensajeCopiado(boton);
     } else {
+      // Si no funcionó, avisamos al usuario que copie manualmente
       alert("Tu navegador no permite copiar automáticamente. Selecciona y copia el texto manualmente.");
     }
   } catch (err) {
+    // Si ocurre un error, también avisamos al usuario
     alert("Tu navegador no permite copiar automáticamente. Selecciona y copia el texto manualmente.");
   }
 
+  // Eliminamos el textarea oculto para no dejar basura en el DOM
   document.body.removeChild(textarea);
 }
 
-// Solo maneja el cambio de texto del botón
+// FUNCIÓN PARA MOSTRAR EL MENSAJE "COPIADO!"
+// Esta función SOLO cambia el texto del botón unos segundos
+// para que el usuario vea que la acción de copiar se realizó.
 function mostrarMensajeCopiado(boton) {
-  const textoOriginal = boton.textContent;
-  boton.textContent = "Copiado!";
+  const textoOriginal = boton.textContent; // Guardamos el texto que tenía antes
+  boton.textContent = "Copiado!";          // Mostramos el nuevo texto temporalmente
   setTimeout(() => {
-    boton.textContent = textoOriginal;
+    boton.textContent = textoOriginal;     // Pasados 1,5 segundos, volvemos al texto original
   }, 1500);
 }
