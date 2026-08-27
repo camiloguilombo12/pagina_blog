@@ -29,8 +29,21 @@ public class WebConfig implements WebMvcConfigurer {
         // la cookie de sesión en peticiones cross-origin (frontend en :8081,
         // backend en :8080). Por eso NO se puede usar origin "*" aquí:
         // el estándar CORS prohíbe combinar "*" con credenciales.
+        //
+        // Se usa allowedOriginPatterns (en vez de allowedOrigins) porque SÍ admite
+        // comodines. Esto permite aceptar cualquier IP/host de la red local o del
+        // entorno donde se despliegue (VM, Killercoda, etc.) siempre que use el
+        // puerto 8081, sin depender de una IP fija que cambia entre entornos.
         registry.addMapping("/api/**")
-                .allowedOrigins(frontendOrigin)
+                .allowedOriginPatterns(
+                        "http://localhost:8081",
+                        "http://127.0.0.1:8081",
+                        "http://192.168.*.*:8081",
+                        "http://10.*.*.*:8081",
+                        "http://172.16.*.*:8081", "http://172.17.*.*:8081", "http://172.18.*.*:8081",
+                        "http://172.19.*.*:8081", "http://172.2*.*.*:8081", "http://172.3*.*.*:8081",
+                        frontendOrigin
+                )
                 .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                 .allowedHeaders("*")
                 .allowCredentials(true);

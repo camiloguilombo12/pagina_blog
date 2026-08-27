@@ -1,0 +1,12 @@
+# Compilados de Maven (se regeneran al construir la imagen)
+backend/target/
+
+# Archivos de prueba / temporales
+backend/cookies.txt
+
+# Variables de entorno reales (se sube .env.example en su lugar)
+.env
+
+# IDE
+.idea/
+*.iml
