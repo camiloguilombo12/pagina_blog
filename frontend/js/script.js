@@ -49,6 +49,11 @@ function cargarSeccion(ruta, idContenedor, mensajeError) {
             if (idContenedor === "formularios") {
                 initFormulario();
             }
+
+            // Si acabamos de cargar la sección de acceso, activamos login/registro/CRUD
+            if (idContenedor === "acceso") {
+                initAcceso();
+            }
         })
         .catch(error => console.error(mensajeError, error));
 }
@@ -56,6 +61,7 @@ function cargarSeccion(ruta, idContenedor, mensajeError) {
 // Cargamos cada una de las secciones del blog
 cargarSeccion("components/header.html", "header-container", "Error al cargar el header");
 cargarSeccion("components/footer.html", "footer-container", "Error al cargar el footer");
+cargarSeccion("pages/acceso.html", "acceso", "Error al cargar la página de acceso" );
 cargarSeccion("pages/basicas.html", "basicas", "Error al cargar la página de básicas");
 cargarSeccion("pages/texto.html", "texto","Error al cargar la página de texto" );
 cargarSeccion("pages/listas.html", "listas", "Error al cargar la página de listas")
@@ -82,7 +88,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // Al iniciar la página, mostramos por defecto la sección "basicas"
-  mostrarSeccion("basicas");
+  mostrarSeccion("acceso");
 
   // Escuchamos todos los clics y buscamos enlaces con el atributo data-seccion
   document.addEventListener("click", (event) => {

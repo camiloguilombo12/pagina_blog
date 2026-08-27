@@ -1,0 +1,105 @@
+
+<section class="acceso">
+    <h2>Acceso de usuarios</h2>
+    <p>
+        Inicia sesión si ya tienes una cuenta, o regístrate para crear una nueva. Una vez que hayas iniciado sesión.
+    </p>
+
+    <!-- ============ BLOQUE: NO HAY SESIÓN (login + registro) ============ -->
+    <div id="bloque-sin-sesion">
+
+        <div class="acceso-columnas">
+            <!-- Formulario de LOGIN -->
+            <article class="etiqueta">
+                <h3>Iniciar sesión</h3>
+                <form id="form-login">
+                    <div class="campo">
+                        <label for="login-correo">Correo:</label>
+                        <input type="email" id="login-correo" name="correo" placeholder="tucorreo@ejemplo.com" required>
+                    </div>
+                    <div class="campo">
+                        <label for="login-password">Contraseña:</label>
+                        <input type="password" id="login-password" name="password" placeholder="Tu contraseña" required>
+                    </div>
+                    <div class="campo">
+                        <button type="submit">Ingresar</button>
+                    </div>
+                </form>
+                <div id="login-mensaje"></div>
+            </article>
+
+            <!-- Formulario de REGISTRO -->
+            <article class="etiqueta">
+                <h3>Crear una cuenta</h3>
+                <form id="form-registro">
+                    <div class="campo">
+                        <label for="registro-nombre">Nombre:</label>
+                        <input type="text" id="registro-nombre" name="nombre" placeholder="Tu nombre completo" required>
+                    </div>
+                    <div class="campo">
+                        <label for="registro-correo">Correo:</label>
+                        <input type="email" id="registro-correo" name="correo" placeholder="tucorreo@ejemplo.com" required>
+                    </div>
+                    <div class="campo">
+                        <label for="registro-password">Contraseña:</label>
+                        <input type="password" id="registro-password" name="password" placeholder="Mínimo 6 caracteres" minlength="6" required>
+                    </div>
+                    <div class="campo">
+                        <button type="submit">Registrarme</button>
+                    </div>
+                </form>
+                <div id="registro-mensaje"></div>
+            </article>
+        </div>
+    </div>
+
+    <!-- ============ BLOQUE: SÍ HAY SESIÓN (bienvenida + CRUD) ============ -->
+    <div id="bloque-con-sesion" style="display:none;">
+
+        <article class="etiqueta">
+            <h3>Sesión activa</h3>
+            <p id="bienvenida-texto"></p>
+            <button type="button" id="btn-logout">Cerrar sesión</button>
+        </article>
+
+        <!-- Formulario para editar un usuario (aparece al presionar "Editar" en la tabla) -->
+        <article class="etiqueta" id="form-editar-wrapper" style="display:none;">
+            <h3>Editar usuario</h3>
+            <form id="form-editar-usuario">
+                <input type="hidden" id="editar-id">
+                <div class="campo">
+                    <label for="editar-nombre">Nombre:</label>
+                    <input type="text" id="editar-nombre" required>
+                </div>
+                <div class="campo">
+                    <label for="editar-correo">Correo:</label>
+                    <input type="email" id="editar-correo" required>
+                </div>
+                <div class="campo">
+                    <button type="submit">Guardar cambios</button>
+                    <button type="button" id="btn-cancelar-edicion">Cancelar</button>
+                </div>
+            </form>
+        </article>
+
+        <article class="etiqueta">
+            <h3>Usuarios registrados</h3>
+            <div class="tabla-wrapper">
+                <table id="tabla-usuarios">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nombre</th>
+                            <th>Correo</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="usuarios-tbody">
+                        <tr><td colspan="4">Cargando usuarios...</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div id="usuarios-mensaje"></div>
+        </article>
+    </div>
+</section>

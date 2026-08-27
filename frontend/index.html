@@ -22,6 +22,10 @@
 <div id="formularios" class="seccion"></div>
 <div id="tablas" class="seccion"></div>
 <div id="multimedia" class="seccion"></div>
+
+<!-- Sección de acceso: login, registro y CRUD de usuarios (consume el backend) -->
+<div id="acceso" class="seccion"></div>
+
 <div id="nosotros" class="seccion nosotros"></div>
 
 <!-- Contenedor donde se carga el footer desde components/footer.html -->
@@ -30,7 +34,13 @@
 <!-- Hoja de estilos principal del proyecto -->
 <link rel="stylesheet" href="css/styles.css">
 
+<!-- Configuración: URL base del backend (para poder cambiarla fácil según el entorno) -->
+<script src="js/config.js"></script>
+
 <!-- Archivo JavaScript que carga las secciones y maneja la navegación -->
 <script src="js/script.js"></script>
+
+<!-- Lógica de login, registro y CRUD de usuarios (habla con el backend) -->
+<script src="js/auth.js"></script>
 </body>
 </html>

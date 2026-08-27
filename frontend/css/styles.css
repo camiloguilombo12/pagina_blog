@@ -377,3 +377,103 @@ footer {
   box-shadow: 0 10px 24px rgba(15, 23, 42, 0.6);
   transform: translateY(-1px);
 }
+/* ---------------------------------------------------------- */
+/* SECCIÓN PRODUCTOS (CRUD conectado al backend)                */
+/* ---------------------------------------------------------- */
+
+/* Botones del formulario de productos */
+.acceso button,
+.acceso .btn-editar,
+.acceso .btn-eliminar {
+  padding: 0.5rem 1.1rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  border-radius: 8px;
+  border: 1px solid #1d4ed8;
+  background-color: #1d4ed8;
+  color: #f9fafb;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.15s ease;
+  margin-right: 0.5rem;
+}
+
+.acceso button:hover,
+.acceso .btn-editar:hover {
+  background-color: #0b1120;
+  transform: translateY(-1px);
+}
+
+.acceso #btn-cancelar-edicion,
+.acceso #btn-logout {
+  background-color: #6b7280;
+  border-color: #6b7280;
+}
+
+/* Columnas lado a lado para los formularios de login y registro */
+.acceso-columnas {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+@media (max-width: 720px) {
+  .acceso-columnas {
+    grid-template-columns: 1fr;
+  }
+}
+
+.acceso .btn-eliminar {
+  background-color: #dc2626;
+  border-color: #dc2626;
+}
+
+.acceso .btn-eliminar:hover {
+  background-color: #991b1b;
+}
+
+/* Tabla de productos */
+.tabla-wrapper {
+  overflow-x: auto;
+}
+
+#tabla-usuarios {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+}
+
+#tabla-usuarios th,
+#tabla-usuarios td {
+  padding: 0.65rem 0.75rem;
+  border-bottom: 1px solid #e5e7eb;
+  text-align: left;
+}
+
+#tabla-usuarios thead {
+  background-color: #f3f4f6;
+}
+
+#tabla-usuarios tbody tr:hover {
+  background-color: #f9fafb;
+}
+
+/* Mensajes de éxito / error del CRUD */
+.acceso #login-mensaje,
+.acceso #registro-mensaje,
+.acceso #usuarios-mensaje {
+  margin-top: 0.75rem;
+  padding: 0.6rem 0.9rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+}
+
+.mensaje-exito {
+  background-color: #dcfce7;
+  color: #166534;
+}
+
+.mensaje-error {
+  background-color: #fee2e2;
+  color: #991b1b;
+}

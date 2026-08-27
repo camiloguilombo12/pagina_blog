@@ -1,0 +1,72 @@
+services:
+
+  # ---------------------- BASE DE DATOS ----------------------
+  db:
+    image: mysql:8.0
+    container_name: crud_db
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    ports:
+      - "${MYSQL_PORT}:3306"
+    volumes:
+      # Volumen con nombre: los datos sobreviven aunque se borre el contenedor
+      - datos_mysql:/var/lib/mysql
+    networks:
+      - red_crud
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-p${MYSQL_ROOT_PASSWORD}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # ---------------------- BACKEND (Spring Boot) ----------------------
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: crud_backend
+    restart: unless-stopped
+    environment:
+      DB_HOST: db
+      DB_PORT: 3306
+      DB_NAME: ${MYSQL_DATABASE}
+      DB_USER: ${MYSQL_USER}
+      DB_PASSWORD: ${MYSQL_PASSWORD}
+      SERVER_PORT: ${BACKEND_PORT}
+      FRONTEND_ORIGIN: ${FRONTEND_ORIGIN}
+    ports:
+      - "${BACKEND_PORT}:8080"
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - red_crud
+
+  # ---------------------- FRONTEND (HTML/CSS/JS + Nginx) ----------------------
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: crud_frontend
+    restart: unless-stopped
+    ports:
+      - "${FRONTEND_PORT}:80"
+    depends_on:
+      - backend
+    networks:
+      - red_crud
+
+# Red Docker: permite que los tres contenedores se comuniquen entre sí por nombre
+networks:
+  red_crud:
+    name: red_crud
+    driver: bridge
+
+# Volumen: guarda los datos de MySQL aunque el contenedor se destruya
+volumes:
+  datos_mysql:
+    name: datos_mysql
